@@ -3,6 +3,7 @@
     :default-active="activeMenu"
     mode="horizontal"
     @select="handleSelect"
+    :ellipsis="false"
   >
     <template v-for="(item, index) in topMenus">
       <el-menu-item :style="{'--theme': theme}" :index="item.path" :key="index" v-if="index < visibleNumber"
@@ -107,7 +108,7 @@ const activeMenu = computed(() => {
 
 function setVisibleNumber() {
   const width = document.body.getBoundingClientRect().width / 3;
-  visibleNumber.value = parseInt(width / 85);
+  visibleNumber.value = 2;
 }
 
 function handleSelect(key, keyPath) {
